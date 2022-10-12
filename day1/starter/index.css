@@ -1,0 +1,38 @@
+body {
+    background-color: antiquewhite;
+    display: grid;
+}
+
+header {
+    text-align: center;
+}
+
+.main-conatiner {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 10px;
+}
+
+.card {
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px 40px;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.heading {
+    font-weight: bold;
+    text-align: left;
+}
+
+.value {
+    text-align: left;
+}
