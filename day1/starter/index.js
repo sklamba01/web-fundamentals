@@ -1,5 +1,4 @@
 
-
 const nameFormatter = (user) => `${user.firstName} ${user.lastName}`;
 const companyFormatter = (user) => `${user.company.name}`;
 const positionFormatter = (user) => `${user.company.title}`;
@@ -29,7 +28,6 @@ function renderUserListing() {
       });
 }
 
-
 function showUser(user) {
     let cardDiv = document.createElement("div");
     cardDiv.setAttribute("class", "card");
@@ -37,15 +35,9 @@ function showUser(user) {
     profileImage.setAttribute("class", "profile-image");
     profileImage.setAttribute("src", user.image);
     cardDiv.appendChild(profileImage);
-    // cardDiv.appendChild(document.createElement("br"));
     let table = document.createElement("table");
     config.forEach((field) => {
-        let value;
-        if (field.formatter) {
-            value = field.formatter(user);
-        } else {
-            value = user[field.key];
-        }
+        let value = field.formatter ? field.formatter(user) : user[field.key];
         table.appendChild(createRow(field.label, value));
     });
     console.log(table);
