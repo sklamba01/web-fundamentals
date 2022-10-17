@@ -8,7 +8,7 @@ import axios from 'axios'
 
 
 const UserComponent = () => {
-  const empUser = {firstName:"", lastName:"", email:"", mob:""};
+  const empUser = { firstName: "", lastName: "", email: "", mob: "" };
   const [users, setUsers] = React.useState([
     {
       firstName: "First Name",
@@ -18,7 +18,7 @@ const UserComponent = () => {
     }
   ]);
 
-  const getUsersFromApi = async () => {    
+  const getUsersFromApi = async () => {
     axios.get('/user_all')
       .then((data) => {
         const newUsers = [...users];
@@ -44,14 +44,16 @@ const UserComponent = () => {
   const updateUser = (index) => {
     const user = users[index];
     // deleteUser(index);
-    
+
   }
 
   return (
     <div className="app">
       <div className="container">
         <h1 className="text-center mb-4">User list</h1>
-        <Button className="btn-primary" variant="outline" onClick={() => {getUsersFromApi()}}>Fetch users</Button>
+        <div className="text-center">
+          <Button className="text-center btn-primary" variant="outline" onClick={() => { getUsersFromApi() }}>Fetch users</Button>
+        </div>
         <AddUser user={empUser} users={users} addUser={addUser} />
         <UserList users={users} deleteUser={deleteUser} updateUser={updateUser} />
       </div>
